@@ -1,4 +1,9 @@
 <?php
+session_start();
+$isReturning = isset($_SESSION['has_visited']);
+$_SESSION['has_visited'] = true;
+$greeting = $isReturning ? "Welcome Back" : "Welcome";
+
 $pageTitle = "Login | DC Cosplay Creatures";
 ?>
 <!DOCTYPE html>
@@ -10,7 +15,7 @@ $pageTitle = "Login | DC Cosplay Creatures";
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=8.0">
+    <link rel="stylesheet" href="css/style.css?v=11.0">
     <script src="js/main.js" defer></script>
 </head>
 <body class="auth-body">
@@ -39,25 +44,30 @@ $pageTitle = "Login | DC Cosplay Creatures";
     <div class="auth-bg-overlay"></div>
 
     <div class="auth-card">
+        <div class="auth-card-header">
+            <h2><?= htmlspecialchars($greeting) ?></h2>
+            <a href="index.php" class="auth-close-btn" aria-label="Close modal">✕</a>
+        </div>
+
         <form action="login.php" method="POST" class="auth-form">
             <div>
                 <label class="form-label">Email / Phone / Username</label>
-                <input type="text" name="identity" required class="form-input auth-input">
+                <input type="text" name="identity" required class="form-input auth-input" placeholder="Enter your username or email">
             </div>
 
             <div>
                 <label class="form-label">Password</label>
-                <input type="password" name="password" required class="form-input auth-input">
+                <input type="password" name="password" required class="form-input auth-input" placeholder="••••••••">
             </div>
 
             <div class="auth-forgot-wrap">
-                <a href="#" class="auth-forgot-link">Forgot password?</a>
+                <a href="forgot-password.php" class="auth-forgot-link">Forgot password?</a>
             </div>
 
-            <button type="submit" class="button button-gold button-auth">Log In</button>
+            <button type="submit" class="button button-gold button-auth">Sign In</button>
 
             <p class="auth-switch-text">
-                Need an account? <a href="register.php">Register</a>
+                Don't have an account? <a href="register.php">Create one</a>
             </p>
         </form>
     </div>
