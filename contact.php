@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="index.php">Home</a>
             <a href="gallery.php">Gallery</a>
             <a href="about.php">About</a>
-            <a href="contact.php">Contact</a>
+            <a class="active" href="contact.php">Contact</a>
         <a href="login.php">Login</a>
 </div>
         <div class="nav-actions">
