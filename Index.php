@@ -10,7 +10,7 @@ $slides = [
 
 $featuredMain = [
     "image" => "assets/home1.jpg",
-    "name" => "Sabertooth Warrior",
+    "name" => "Hollow Wiz",
     "series" => "Original Concept"
 ];
 
@@ -49,7 +49,7 @@ $services = [
             <span>DC COSPLAY<br>CREATURES</span>
         </a>
         <div class="nav-links">
-            <a href="index.php">Home</a>
+            <a class="active" href="index.php">Home</a>
             <a href="gallery.php">Gallery</a>
             <a href="about.php">About</a>
             <a href="contact.php">Contact</a>
@@ -64,7 +64,7 @@ $services = [
 <main>
 <section class="hero" id="home">
     <div class="hero-slides" aria-label="Featured cosplay photos">
-        <?php foreach ($slides as $i => $slide): ?>
+        <?php foreach ($slides as $i =>$slide): ?>
             <div class="hero-slide <?= $i === 0 ? 'is-active' : '' ?>" data-slide="<?= $i ?>">
                 <div class="media-container">
                     <img src="<?= htmlspecialchars($slide['image']) ?>" alt="<?= htmlspecialchars($slide['alt']) ?>" width="1920" height="1080" loading="eager" decoding="async" onerror="this.style.display='none'">
@@ -85,7 +85,7 @@ $services = [
     <button class="slider-arrow slider-prev" aria-label="Previous slide">←</button>
     <button class="slider-arrow slider-next" aria-label="Next slide">→</button>
     <div class="slider-dots" aria-label="Choose hero image">
-        <?php foreach ($slides as $i => $_): ?>
+        <?php foreach ($slides as $i =>$_): ?>
             <button class="<?= $i === 0 ? 'active' : '' ?>" data-go-to="<?= $i ?>" aria-label="Show slide <?= $i+1 ?>"></button>
         <?php endforeach; ?>
     </div>
@@ -112,7 +112,7 @@ $services = [
             </div>
 
             <div class="featured-right-grid">
-                <?php foreach ($featuredGrid as $item): ?>
+                <?php foreach ($featuredGrid as$item): ?>
                 <div class="gallery-card">
                     <a href="gallery.php" class="gallery-image gallery-image-small">
                         <div class="media-container">
@@ -137,7 +137,7 @@ $services = [
         </div>
 
         <div class="services-photo-grid">
-            <?php foreach ($services as $service): ?>
+            <?php foreach ($services as$service): ?>
             <div class="gallery-card">
                 <a href="contact.php" class="gallery-image gallery-image-service">
                     <div class="media-container">
@@ -156,15 +156,21 @@ $services = [
     </div>
 </section>
 
-<section class="cta-banner container cta-banner-custom">
-    <div class="cta-copy cta-copy-custom">
-        <h2 class="cta-heading">Ready for your first fit?</h2>
-        <p class="cta-desc">Join the community, or book a studio session.</p>
+<div class="container">
+    <div class="cta-banner cta-banner-custom">
+        <div class="media-container cta-bg-image">
+            <img src="assets/hero1.png" alt="Cosplay Hero" loading="lazy">
+            <div class="cta-shade"></div>
+        </div>
+        <div class="cta-copy cta-copy-custom">
+            <h2 class="cta-heading">Ready for your first fit?</h2>
+            <p class="cta-desc">Join the community, or book a studio session.</p>
+        </div>
+        <div class="cta-action-wrap">
+            <a class="button button-gold button-gold-cta" href="contact.php">Get in touch</a>
+        </div>
     </div>
-    <div class="cta-action-wrap">
-        <a class="button button-gold button-gold-cta" href="contact.php">Get in touch</a>
-    </div>
-</section>
+</div>
 </main>
 
 <footer class="footer footer-spaced">
@@ -186,7 +192,7 @@ $services = [
             <h4>Contact</h4>
             <p>☎ &nbsp;+63 912 345 6789</p>
             <p>✉ &nbsp;dc.cosplaycreatures@gmail.com</p>
-            <p>⌖ &nbsp;Maria Corazon Dos Brgy. Sta Cruz A.C</p>
+            <p>⚲ &nbsp;Maria Corazon Dos Brgy. Sta Cruz A.C</p>
         </div>
         <div class="socials">
             <h4>Follow Us</h4>
